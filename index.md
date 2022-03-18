@@ -4,10 +4,9 @@
 - [Comments](#Comments)
 - [Variables](#Variables)
 - [Constants](#Constants)
-
+- [Keywords](#Keywords)
 
 ### Comments
-
 Single-line comments
 
 ```markdown
@@ -46,4 +45,7 @@ Unchangeable data in the program.
 
  const int month = 12;
 ```
+### Keywords
+Reserved and not available for re-definition or overloading.
+[C++ Keywords table](https://en.cppreference.com/w/cpp/keyword)
 
