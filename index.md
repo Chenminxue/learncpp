@@ -5,7 +5,7 @@
 - [Variables](#Variables)
 - [Constants](#Constants)
 - [Keywords](#Keywords)
-- [Data&nbsp;Types](#Data&nbsp;Types)
+- [Data Types](#Data&nbsp;Types)
 
 ### Comments
 Single-line comments
