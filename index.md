@@ -7,7 +7,7 @@
 - [Keywords](#Keywords)
 - [Data_Types](#Data_Types)
 
-### Comments
+### <font color=Blue> Comments </font>
 Single-line comments
 
 ```markdown
