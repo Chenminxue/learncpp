@@ -50,7 +50,7 @@ Unchangeable data in the program.
 Reserved and not available for re-definition or overloading.
 [C++ Keywords table](https://en.cppreference.com/w/cpp/keyword)
 
-### Data Types
+### Data&nbsp;Types
 While Creating variables and constants, you must first specify the corresponding data type. You can use keyword 
 ```markdown
  sizeof(data type) or sizeof(variable) 
