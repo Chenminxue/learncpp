@@ -5,7 +5,7 @@
 - [Variables](#Variables)
 - [Constants](#Constants)
 - [Keywords](#Keywords)
-- [Data Types](#Data&nbsp;Types)
+- [Data_Types](#Data_Types)
 
 ### Comments
 Single-line comments
@@ -50,7 +50,7 @@ Unchangeable data in the program.
 Reserved and not available for re-definition or overloading.
 [C++ Keywords table](https://en.cppreference.com/w/cpp/keyword)
 
-### Data&nbsp;Types
+### Data_Types
 While Creating variables and constants, you must first specify the corresponding data type. You can use keyword 
 ```markdown
  sizeof(data type) or sizeof(variable) 
