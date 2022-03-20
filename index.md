@@ -7,7 +7,7 @@
 - [Keywords](#Keywords)
 - [Data_Types](#Data_Types)
 
-### <font color=Blue> Comments </font>
+### Comments
 Single-line comments
 
 ```markdown
@@ -98,4 +98,24 @@ Represent characters like a, z. Notice: The variable stores the ASCII code of th
   97
 ```
 
+#### 4. String
+```markdown
+ C style: char str[] = "abcde";
+```
 
+```markdown
+ C++ style: string str = "abcde";
+```
+
+#### 5. Boolean
+Represent True and False.
+
+```markdown
+ bool(1 byte) 
+```
+
+```markdown
+ bool a = true;
+```
+
+### Data_Input
