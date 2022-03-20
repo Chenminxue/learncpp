@@ -57,7 +57,7 @@ While Creating variables and constants, you must first specify the corresponding
 ``` 
 to get the memory size of the data type or variable.
 
-#### Integer
+#### 1. Integer
 Represent integers like 1, 10.
 ```markdown
  short(2 bytes)
@@ -73,7 +73,7 @@ Represent integers like 1, 10.
 int a = 10;
 ```
 
-#### Floating point
+#### 2. Floating point
 Represent decimals like 1.23, -2.332.
 ```markdown
  float(4 bytes)
@@ -85,14 +85,17 @@ Represent decimals like 1.23, -2.332.
  float pi = 3.14;
 ```
 
-#### Character
-Represent characters like a, z. 
+#### 3. Character
+Represent characters like a, z. Notice: The variable stores the ASCII code of the character. Only one character can be placed in single quotes, otherwise an error will be reported.
 ```markdown
  char(1 byte)
 ```
 
 ```markdown
- char a = 'a';
+ char ch = 'a';
+ cout << int(ch) << endl;
+ 
+  97
 ```
 
 
