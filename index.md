@@ -7,6 +7,7 @@
 - [Keywords](#Keywords)
 - [Data_Types](#Data_Types)
 - [Data_Input](#Data_Input)
+- [Operators](#Operators)
 
 ## Comments
 Single-line comments
