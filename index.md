@@ -8,7 +8,7 @@
 - [Data_Types](#Data_Types)
 - [Data_Input](#Data_Input)
 
-### Comments
+## Comments
 Single-line comments
 
 ```markdown
@@ -23,7 +23,7 @@ Multi-line comments
     ... */
 ```
 
-### Variables
+## Variables
 Give a name to a space in memory.
 
 ```markdown
@@ -32,7 +32,7 @@ Give a name to a space in memory.
  int a = 10;
 ```
 
-### Constants
+## Constants
 Unchangeable data in the program.
 
 ```markdown
@@ -47,11 +47,11 @@ Unchangeable data in the program.
 
  const int month = 12;
 ```
-### Keywords
+## Keywords
 Reserved and not available for re-definition or overloading.
 [C++ Keywords table](https://en.cppreference.com/w/cpp/keyword)
 
-### Data_Types
+## Data_Types
 While Creating variables and constants, you must first specify the corresponding data type. You can use keyword 
 ```markdown
  sizeof(data type) or sizeof(variable) 
@@ -119,4 +119,21 @@ Represent True and False.
  bool a = true;
 ```
 
-### Data_Input
+## Data_Input
+```markdown
+ cin >> Variable;
+```
+
+```markdown
+ int a = 0;
+ cin >> a;
+```
+
+## Operators
+```markdown
+ + - * / % 
+```
+
+```markdown
+ pre-increment/decrement: 
+```
