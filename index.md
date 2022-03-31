@@ -132,9 +132,15 @@ Represent True and False.
 
 ## Operators
 ```markdown
- + - * / % 
+ + - * / % ++ -- += >= || ! && ...
 ```
 
 ```markdown
- pre-increment/decrement: 
+ pre-increment/decrement: a=2; b=++a; // Do b=a first and ++a, the result is a=3; b=3;
 ```
+
+```markdown
+ post-increment/decrement: a=2; b=a++; // Do a++ first and b=a, the result is a=3; b=2;
+```
+
+## Program Control_Flow
