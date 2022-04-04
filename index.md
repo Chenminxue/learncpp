@@ -8,7 +8,7 @@
 - [Data_Types](#Data_Types)
 - [Data_Input](#Data_Input)
 - [Operators](#Operators)
-- [Program Control_Flow](#Program Control_Flow)
+- [Program Control_Flow](#Program_Control_Flow)
 
 ## Comments
 Single-line comments
@@ -144,7 +144,7 @@ Represent True and False.
  post-increment/decrement: a=2; b=a++; // Do a++ first and b=a, the result is a=3; b=2;
 ```
 
-## Program Control_Flow
+## Program_Control_Flow
 
 #### Selection statements
 
