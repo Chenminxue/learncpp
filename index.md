@@ -218,4 +218,4 @@ For loop:
 
 ## Array
 Arrays are used to store elements of the same type(Data type). Arrays are made up of continuous memory.
-
+![avatar](/pics/Array.drawio.png)
