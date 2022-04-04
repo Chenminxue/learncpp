@@ -9,6 +9,7 @@
 - [Data_Input](#Data_Input)
 - [Operators](#Operators)
 - [Program Control_Flow](#Program_Control_Flow)
+- [Array](#Array)
 
 ## Comments
 Single-line comments
@@ -146,7 +147,7 @@ Represent True and False.
 
 ## Program_Control_Flow
 
-#### Selection statements
+#### 1. Selection statements
 
 If condition:
 ```markdown
@@ -180,3 +181,41 @@ Switch condition:
      break;
 }
 ```
+
+#### 2. Iteration statements
+
+While loop:
+```markdown
+ while (expression){
+   statement;
+ } 
+```
+
+Do while loop:
+Do statement first then check the conditon.
+```markdown
+ do{
+   statement;
+ }
+ while (expression)
+```
+
+For loop:
+```markdown
+ for(expression){
+   statement;
+ }
+```
+
+#### 3. Jump statements
+```markdown
+ break; // Leave a loop
+
+ continue; // Skip one loop
+ 
+ goto; // Make an absolute jump to another point in the program
+```
+
+## Array
+Arrays are used to store elements of the same type(Data type). Arrays are made up of contiguous memory.
+
