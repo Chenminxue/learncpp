@@ -8,6 +8,7 @@
 - [Data_Types](#Data_Types)
 - [Data_Input](#Data_Input)
 - [Operators](#Operators)
+- [Program Control_Flow](#Program Control_Flow)
 
 ## Comments
 Single-line comments
@@ -144,3 +145,38 @@ Represent True and False.
 ```
 
 ## Program Control_Flow
+
+#### Selection statements
+
+If condition:
+```markdown
+ if(score > 600){
+  ...
+ }
+ else if(score > 500){
+  ...
+ }
+ else{
+  ...
+ }
+```
+
+Conditional Operator ?:
+```markdown
+ c = a > b ? a : b; // a > b is true then return a, false return b.
+```
+
+Switch condition:
+```markdown
+ switch(c = a > b ? a : b){
+   case a: 
+     cout << a << endl;
+     break;   
+   case b: 
+     cout << b << endl;
+     break;
+   default:
+     cout << "Nothing!" << endl;
+     break;
+}
+```
