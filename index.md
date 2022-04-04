@@ -8,7 +8,7 @@
 - [Data_Types](#Data_Types)
 - [Data_Input](#Data_Input)
 - [Operators](#Operators)
-- [Program_ontrol_Flow](#Program_Control_Flow)
+- [Program_Control_Flow](#Program_Control_Flow)
 - [Array](#Array)
 
 ## Comments
