@@ -218,4 +218,32 @@ For loop:
 
 ## Array
 Arrays are used to store elements of the same type(Data type). Arrays are made up of continuous memory.
+
+#### 1. One-dimensional array
 ![avatar](/pics/array.png)
+
+Three ways to define an array.
+```markdown
+ int arr[3];
+ arr[0] = 10;
+ arr[1] = 20;
+ arr[2] = 30;
+```
+
+```markdown
+ int arr[3] = {10, 20, 30};
+```
+
+```markdown
+ int arr[] = {10, 20, 30, 40};
+```
+
+Get the length of the array.
+```markdown
+ int len = sizeof(arr)/ sizeof(arr[0]); // len is the length of the array.
+```
+
+Get the address of the array.
+```markdown
+ cout << arr << endl;
+```
