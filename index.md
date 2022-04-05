@@ -10,6 +10,7 @@
 - [Operators](#Operators)
 - [Program_Control_Flow](#Program_Control_Flow)
 - [Array](#Array)
+- [Functions](#Functions)
 
 ## Comments
 Single-line comments
@@ -247,3 +248,50 @@ Get the address of the array.
 ```markdown
  cout << arr << endl;
 ```
+
+Get the address of the first element of the array.
+```markdown
+ cout << &arr[0] << endl; // The address is the same as arr.
+```
+
+#### 2. Two-dimensional array
+![avatar](/pics/two_dimensional_array.png)
+
+Four ways to define a two-dimensional array.
+```markdown
+ int arr[2][3];
+ arr[0][0] = 1;
+ arr[0][1] = 2;
+ arr[0][2] = 3;
+ arr[1][0] = 4;
+ arr[1][1] = 5;
+ arr[1][2] = 6;
+```
+
+```markdown
+ int arr[2][3] = {
+    {1,2,3},
+    {4,5,6}
+ };
+```
+
+```markdown
+ int arr[2][3] = {1,2,3,4,5,6};
+```
+
+```markdown
+ int arr[][3] = {1,2,3,4,5,6}; // Give the number of columns.
+```
+
+## Functions
+
+Encapsulate a piece of frequently used code to reduce repetitive use of code.
+
+How to write a function:
+```markdown
+ int add(int num_1, int num_2){
+    int sum = num_1 + num_2;
+    return sum;
+ }
+```
+How to call a function:
