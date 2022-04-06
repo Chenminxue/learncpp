@@ -287,11 +287,23 @@ Four ways to define a two-dimensional array.
 
 Encapsulate a piece of frequently used code to reduce repetitive use of code.
 
-How to write a function:
+How to write and call a function:
 ```markdown
- int add(int num_1, int num_2){
+ int add(int num_1, int num_2){ // num_1 and num_2 are parameters
     int sum = num_1 + num_2;
     return sum;
  }
+ 
+ int main(){
+    int a = 10;
+    int b = 20;
+    int sum = add(a, b); // a and b are arguments
+    
+    return 0;
+ }
 ```
-How to call a function:
+
+Pass by value:
+The above example is called pass by value. When a function is called, a value is passed to the parameters through the arguments. If the parameters are changed, the arguments will not be affected. 
+
+**The principle of passing by value：**
