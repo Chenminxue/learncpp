@@ -1,6 +1,7 @@
 # Welcome to C++
 
 ## Catalogue
+
 - [Comments](#Comments)
 - [Variables](#Variables)
 - [Constants](#Constants)
@@ -13,6 +14,7 @@
 - [Functions](#Functions)
 
 ## Comments
+
 Single-line comments
 
 ```markdown
@@ -28,6 +30,7 @@ Multi-line comments
 ```
 
 ## Variables
+
 Give a name to a space in memory.
 
 ```markdown
@@ -37,6 +40,7 @@ Give a name to a space in memory.
 ```
 
 ## Constants
+
 Unchangeable data in the program.
 
 ```markdown
@@ -52,10 +56,12 @@ Unchangeable data in the program.
  const int month = 12;
 ```
 ## Keywords
+
 Reserved and not available for re-definition or overloading.
 [C++ Keywords table](https://en.cppreference.com/w/cpp/keyword)
 
 ## Data_Types
+
 While Creating variables and constants, you must first specify the corresponding data type. You can use keyword 
 ```markdown
  sizeof(data type) or sizeof(variable) 
@@ -63,6 +69,7 @@ While Creating variables and constants, you must first specify the corresponding
 to get the memory size of the data type or variable.
 
 #### 1. Integer
+
 Represent integers like 1, 10.
 ```markdown
  short(2 bytes)
@@ -79,6 +86,7 @@ int a = 10;
 ```
 
 #### 2. Floating point
+
 Represent decimals like 1.23, -2.332.
 ```markdown
  float(4 bytes)
@@ -91,6 +99,7 @@ Represent decimals like 1.23, -2.332.
 ```
 
 #### 3. Character
+
 Represent characters like a, z. Notice: The variable stores the ASCII code of the character. Only one character can be placed in single quotes, otherwise an error will be reported.
 ```markdown
  char(1 byte)
@@ -104,6 +113,7 @@ Represent characters like a, z. Notice: The variable stores the ASCII code of th
 ```
 
 #### 4. String
+
 ```markdown
  C style: char str[] = "abcde";
 ```
@@ -113,6 +123,7 @@ Represent characters like a, z. Notice: The variable stores the ASCII code of th
 ```
 
 #### 5. Boolean
+
 Represent True and False.
 
 ```markdown
@@ -124,6 +135,7 @@ Represent True and False.
 ```
 
 ## Data_Input
+
 ```markdown
  cin >> Variable;
 ```
@@ -134,6 +146,7 @@ Represent True and False.
 ```
 
 ## Operators
+
 ```markdown
  + - * / % ++ -- += >= || ! && ...
 ```
@@ -209,6 +222,7 @@ For loop:
 ```
 
 #### 3. Jump statements
+
 ```markdown
  break; // Leave a loop
 
@@ -218,9 +232,11 @@ For loop:
 ```
 
 ## Array
+
 Arrays are used to store elements of the same type(Data type). Arrays are made up of continuous memory.
 
 #### 1. One-dimensional array
+
 ![avatar](/pics/array.png)
 
 Three ways to define an array.
@@ -255,6 +271,7 @@ Get the address of the first element of the array.
 ```
 
 #### 2. Two-dimensional array
+
 ![avatar](/pics/two_dimensional_array.png)
 
 Four ways to define a two-dimensional array.
@@ -304,8 +321,47 @@ How to write and call a function:
 ```
 
 Pass by value:
-The above example is called pass by value. When a function is called, a value is passed to the parameters through the arguments. If the parameters are changed, the arguments will not be affected. 
+The above example is called pass by value. When a function is called, a value is passed to the parameters through the arguments. If the parameters are changed, the arguments will not be affected. **The principle of passing by value：**
 
-**The principle of passing by value：**
 ![avatar](/pics/pass_by_value.png)
 
+Four types of functions:
+```markdown
+ void test(){
+ 
+ }
+```
+
+```markdown
+ void test(){
+    cout << "This is a test!" << endl;
+ }
+```
+
+```markdown
+ int test(){
+    cout << "This is a test!" << endl;
+    return 100;
+ }
+```
+
+```markdown
+ int test(int a){
+    return a;
+ }
+```
+Function Declarations:
+A function declaration tells the compiler about a function name and how to call the function. The actual body of the function can be defined separately. For example:
+
+```markdown
+ int add(int num_1, int num_2);
+ 
+ int main(){
+ 
+ }
+ 
+ int add(int num_1, int num_2){ // num_1 and num_2 are parameters
+   int sum = num_1 + num_2;
+   return sum;
+ }
+```
