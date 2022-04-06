@@ -375,6 +375,8 @@ Memory can be accessed through pointers.
 datatype * variable;
 ```
 
+\& is used for getting the address of one variable and \* is used for dereferencing the address.
+
 ```
 int a = 10;
 int * p = &a;
@@ -383,3 +385,5 @@ cout << &a << endl; // 0x6000
 cout << p << endl;  // 0x6000
 cout << *p << endl; // 10
 ```
+
+![avatar](/pics/pointer.png)
