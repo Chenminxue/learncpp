@@ -307,3 +307,5 @@ Pass by value:
 The above example is called pass by value. When a function is called, a value is passed to the parameters through the arguments. If the parameters are changed, the arguments will not be affected. 
 
 **The principle of passing by value：**
+![avatar](/pics/pass_by_value.png)
+
