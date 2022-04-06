@@ -386,4 +386,4 @@ cout << p << endl;  // 0x6000
 cout << *p << endl; // 10
 ```
 
-![avatar](/pics/pointer.png)
+![avatar](/pics/pointers.png)
