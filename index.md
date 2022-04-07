@@ -470,4 +470,6 @@ int main(){
 }
 ```
 
-## Struct(User defined data types)
+## Struct
+
+Struct is a user defined data type.
