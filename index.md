@@ -13,6 +13,7 @@
 - [Array](#Array)
 - [Functions](#Functions)
 - [Pointers](#Pointers)
+- [Struct](#Struct)
 
 ## Comments
 
@@ -447,5 +448,26 @@ cout << "Second element." << *p << endl;        // By using pointer.
 
 ![avatar](/pics/pointer_with_array.png)
 
-#### 7. Pointers with functions
+#### 7. Pointers with functions(related to Chapter Functions, pass by value)
 
+Use pointer as the parameters of the function instead of using pass by value, this is called ***pass by address***. The advantage of pass by address is that the value of arguments can be changed.
+
+```
+void swap(int *p_1, int *p_2){
+   int temp = *p_1;
+   *p_1 = *p_2;
+   *p_2 = temp;
+}
+
+int main(){
+
+   int a = 10;
+   int b = 20;
+   
+   swap(&a, &b);  // a and b are swapped. 
+
+   return 0;
+}
+```
+
+## Struct(User defined data types)
