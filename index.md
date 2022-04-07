@@ -387,3 +387,63 @@ cout << *p << endl; // 10
 ```
 
 ![avatar](/pics/pointers.png)
+
+#### 2. Size of the pointer
+
+32-bits machine: 4 bytes
+64-bits machine: 8 bytes
+
+#### 3. NULL pointers
+
+The pointer points to a space numbered 0 in memory. Used to initialize pointer variables(If you create a pointer and do not know where to point). **Notice! The memory pointed to by the null pointer cannot be accessed!**
+
+```
+int *p = NULL;
+
+cout << *p << endl;  // Error!
+*p = 100;            // Error!
+```
+
+#### 4. Wild Pointers
+
+Try to avoid wild pointers in the program.
+```
+int *p = (int*) 0x6000;
+cout << *p << endl;  // Syntax is correct but unable to run! Because you do not have rights to access 0x6000, maybe something else important there.
+```
+
+#### 5. Pointers with const
+
+```
+int a = 10;
+int b = 10;
+
+const int *p_1 = &a;      // Value can not be changed but the address can be changed.
+p_1 = &b;                 // This is correct!
+*p_1 = 99;                // This is wrong!
+
+int * const p_2 = &a;      // Value can be changed but the address can not be changed.
+p_2 = &b;                 // This is wrong!
+*p_2 = 99;                // This is correct!
+
+const int * const p_3 = &a;      // Both address and value can not be changed.
+p_3 = &b;                 // This is wrong!
+*p_3 = 99;                // This is wrong!
+```
+
+#### 6. Pointers with array
+
+How to use pointers to access the elements of an array?
+```
+int arr[] = {1,2,3,4,5,6};
+
+int *p = arr;                                   // arr is the address already, no need to use & to get the address anymore.
+
+cout << "First element." << arr[0] << endl;     // By using arr.
+cout << "First element." << *p << endl;         // By using pointer.
+p++;                                            // Move pointer to the next element, because the pointer points to datatype int, so it will shift 4 bytes.
+cout << "Second element." << *p << endl;        // By using pointer.
+```
+
+![avatar](/pics/pointer_with_array.png)
+
