@@ -447,3 +447,5 @@ cout << "Second element." << *p << endl;        // By using pointer.
 
 ![avatar](/pics/pointer_with_array.png)
 
+#### 7. Pointers with functions
+
