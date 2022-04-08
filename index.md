@@ -582,7 +582,7 @@ void test_1(Student s){
    cout << s.name << endl;
 }
 
-void test_2(Student *p){
+void test_2(Student *p){         // No need to copy arguments, save memory space.
    cout << p->name << endl;
 }
 
@@ -598,3 +598,24 @@ int main(){
 ```
 
 #### 5. Struct with const
+Prevent data modification.
+
+```
+struct Student {
+   string name;
+   int age;
+   int score;
+};
+
+void test(const Student *p){     // You can not modify the contents of the structure. Safe.
+   cout << p->name << endl;
+}
+
+int main(){
+   Student s = {"Matt", 20. 90};
+   
+   test(&s);
+   
+   return 0;
+}
+```
