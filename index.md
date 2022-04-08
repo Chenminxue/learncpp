@@ -523,3 +523,78 @@ int main(){
 }
 ```
 
+#### 2. Struct array
+
+```
+struct Student {
+   string name;
+   int age;
+   int score;
+};
+
+int main(){
+   Student s[3] = {
+   {"Matt", 20. 90},
+   {"Tom", 35. 77},
+   {"Jonny", 28. 95},
+   };
+   
+   s[2].name = "Jan";   // Modify the name.
+   s[1].score = 30;     // Modify the score.
+   
+   return 0;
+}
+```
+
+#### 3. Struct with pointers
+
+```
+struct Student {
+   string name;
+   int age;
+   int score;
+};
+
+int main(){
+   Student s = {"Matt", 20. 90};
+   
+   Student *p = &s;     // Use pointer to access the structure.
+   cout << p->name << endl;
+   cout << p->age << endl;
+   cout << p->score << endl;
+   
+   return 0;
+}
+```
+
+#### 4. Use struct as the parameters of the functions
+
+Pass by value and pass by address.
+
+```
+struct Student {
+   string name;
+   int age;
+   int score;
+};
+
+void test_1(Student s){
+   cout << s.name << endl;
+}
+
+void test_2(Student *p){
+   cout << p->name << endl;
+}
+
+int main(){
+   Student s = {"Matt", 20. 90};
+   
+   test_1(s);
+   
+   test_2(&s);
+   
+   return 0;
+}
+```
+
+#### 5. Struct with const
