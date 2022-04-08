@@ -473,3 +473,53 @@ int main(){
 ## Struct
 
 Struct is a user defined data type.
+
+#### 1. Define and use a struct(3 ways to use a struct)
+
+```
+struct Student {
+   string name;
+   int age;
+   int score;
+};
+
+int main(){
+   Student s_1;
+   s_1.name = "Matt";
+   s_1.age = 20;
+   s_1.score = 90;
+   
+   return 0;
+}
+```
+
+```
+struct Student {
+   string name;
+   int age;
+   int score;
+};
+
+int main(){
+   Student s_2 = {"Matt", 20. 90};
+   
+   return 0;
+}
+```
+
+```
+struct Student {
+   string name;
+   int age;
+   int score;
+}s_3;
+
+int main(){
+   s_3.name = "Matt";
+   s_3.age = 20;
+   s_3.score = 90;
+   
+   return 0;
+}
+```
+
