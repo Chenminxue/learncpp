@@ -15,6 +15,7 @@
 - [Pointers](#Pointers)
 - [Struct](#Struct)
 - [Memory_Layout](#Memory_Layout)
+- [Reference](#Reference)
 
 ## Comments
 
@@ -648,3 +649,48 @@ int main(){
    return 0;
 }
 ```
+
+The programmer is able to use ``` new  ``` to create the data in heap and use ``` delete ``` to free the data.
+
+```
+int* func(){
+   int *p = new int(10);
+   return p;    
+}
+
+void test(){
+   int *p = func();
+   cout << *p << endl;
+   cout << *p << endl;     // Store in heap, pointer p won't be deleted by the compiler.
+   cout << *p << endl;
+   
+   delete p;
+}
+
+int main(){
+   test();     
+
+   return 0;
+}
+```
+Create a array.
+```
+void test(){
+   int *arr = new int[10];    // 10 elements
+   
+   for(int i = 0; i < 10; i++){
+      arr[i] = i;
+   }
+   
+   delete [] arr;
+}
+
+int main(){
+   test();     
+
+   return 0;
+}
+```
+
+## Reference
+
