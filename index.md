@@ -622,3 +622,29 @@ int main(){
 ```
 ## Memory_Layout
 
+Memory layout model:
+1. Text Segment: Contains binary executable instructions. Shared and only readable.
+2. Global Segment(Initialized and Uninitialized Data Segments): Store global variables, static variables and constants.
+4. Stack: Automatically allocate and free by the compiler. Stores the values of the parameters of the function, local variables, etc.
+5. Heap: Manual allocate and free by the programmer. If not de freed manually, it will be reclaimed by the operating system at the end of the program.
+
+Data stored in different segments are given different life cycles. Make programming more flexible.
+
+![avatar](/pics/global_segments.png)
+
+***Caution: Do not return the address of the local variable in a function because the function stores in stack and after excuting the function, the compiler will free all the data inside it.***
+
+```
+int* func(){
+   int a = 10;
+   return &a;     // Return the address of local variable a.
+}
+
+int main(){
+   int *p = func();
+   cout << *p << endl;      // The compiler will save the data once, you can get the result 10;
+   cout << *p << endl;      // You can not get 10 because the compiler already free the function which stored in stack.
+
+   return 0;
+}
+```
