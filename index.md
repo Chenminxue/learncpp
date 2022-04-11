@@ -701,6 +701,6 @@ int a = 10;
 int &b = a;
 ```
 
-![avatar](/pics/reference.png)
+![avatar](/pics/reference_1.png)
 
 
