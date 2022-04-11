@@ -694,3 +694,13 @@ int main(){
 
 ## Reference
 
+Give an alternative name of a variable. 
+
+```
+int a = 10;
+int &b = a;
+```
+
+![avatar](/pics/reference.png)
+
+
