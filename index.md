@@ -730,7 +730,7 @@ int main(){
 }
 ```
 
-Use reference as the return of a function(Do remember do not return the address of a local variable!): 
+Use reference as the return of a function(Do remember do not return the reference of a local variable!): 
 ```
 int & func(){             // Return the alternative name of a, & is not used for getting the address of the variable.
    int a = 10;
