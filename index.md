@@ -368,6 +368,12 @@ int add(int num_1, int num_2){ // num_1 and num_2 are parameters
 ```
 #### 5. Writing functions in different files:
 
+#### 6. Default value of parameters of the function:
+```
+int func(int a, int b = 20， int c = 30){}     // If b has default value, all parameters on the right should have default values.
+```
+
+#### 7.  
 
 ## Pointers
 Memory can be accessed through pointers.
@@ -694,7 +700,7 @@ int main(){
 
 ## Reference
 
-Give an alternative name of a variable. 
+Give an alternative name of a variable by using ```int * const ref = &a;```. It can be simplified as:
 
 ```
 int a = 10;
@@ -703,4 +709,55 @@ int &b = a;
 
 ![avatar](/pics/reference_1.png)
 
+Pass by address(using pointers) can be simplified by using reference as the parameters of a function:
+```
+void func(int &a, int &b){
+   int temp = a;
+   a = b;
+   b = temp;
+}
 
+int main(){
+   int main_a = 10;
+   int main_b = 20;
+   
+   func(main_a, main_b);
+   
+   cout << "Now main_a is " << main_a << endl;     // 20, swaped
+   cout << "Now main_b is " << main_b << endl;     // 10, swaped
+   
+   return 0;
+}
+```
+
+Use reference as the return of a function(Do remember do not return the address of a local variable!): 
+```
+int & func(){             // Return the alternative name of a, & is not used for getting the address of the variable.
+   int a = 10;
+   return a;              // Do not return the reference of the local variable in a function. This is a bad example!
+}
+
+int main(){
+   int & ref = func();
+   cout << ref << endl;   // 10
+   cout << ref << endl;   // 26000090846, a has been deleted, ref will lost it's value.
+}
+```
+
+```
+int & func(){
+   static int a = 10;     // Stored in global memory space.
+   return a;
+}
+
+int main(){
+   int & ref = func();
+   cout << ref << endl;   // 10
+   cout << ref << endl;   // 10
+   
+   func() = 1000;
+   
+   cout << ref << endl;   // 1000, the result of func() is the alternative name(reference) of static variable a, func() = 1000 is equal to let a = 1000, then ref is equal to 1000 also.
+   cout << ref << endl;   // 1000
+}
+```
