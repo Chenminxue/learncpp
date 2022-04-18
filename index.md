@@ -859,7 +859,7 @@ int main(){
    return 0;
 }
 ```
-###### 3. Initialize and delete objects
+### 1. Initialize and delete objects
 
 Constructors: When creating a new object, assign values to the members of this object. Parameters allowed. Overloading allowed.
 Destructors: Clean the object. No parameters. Overloading not allowed.
