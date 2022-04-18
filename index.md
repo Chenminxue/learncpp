@@ -866,14 +866,51 @@ Destructors: Clean the object. No parameters. Overloading not allowed.
 ```
 Class Person{
 public:
-   
+   int m_age;
+
+public:
    Person(){
-      cout << "This is constructor." << endl;
+      cout << "This is a constructor without parameters." << endl;
+   }
+   
+   Person(int a){
+      m_age = a;
+      cout << "This is a constructor with parameters." << endl;
    }
 
+   Person(const Person &p){
+      m_age = p.m_age;
+      cout << "This is a copy constructor." << endl;                 // Copy from other objects.
+   }
+   
    ~Person(){
       cout << "This is destructor." << endl;
    }
 
+}
+
+void method_1(){
+   Person p_1;
+   Person p_2(22);
+   Person p_3(p_2);
+}
+
+void method_2(){
+   Person p_1;
+   Person p_2 = Person(22);
+   Person p_3 = Person(p_2);
+}
+
+void method_3(){
+   Person p_1 = 22;              // Equal to Person p_1 = Person(22);
+   Person p_2 = p_1;
+}
+
+int main(){
+   method_1();
+   method_2();
+   method_3();
+   
+   return 0;
 }
 ```
