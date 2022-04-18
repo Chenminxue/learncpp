@@ -16,6 +16,7 @@
 - [Struct](#Struct)
 - [Memory_Layout](#Memory_Layout)
 - [Reference](#Reference)
+- [Object_Oriented_Programming](#Object_Oriented_Programming)
 
 ## Comments
 
@@ -373,7 +374,42 @@ int add(int num_1, int num_2){ // num_1 and num_2 are parameters
 int func(int a, int b = 20， int c = 30){}     // If b has default value, all parameters on the right should have default values.
 ```
 
-#### 7.  
+```
+void func(int a, int){                         // You must give 2 values while using the function.
+
+}
+```
+
+#### 7. Overloading
+
+Conditions: 1. Under the same namespace 2. Name of the function should be the same 3. parameters are different.
+
+```
+void func(){
+}
+```
+
+```
+void func(int a){
+}
+```
+
+```
+void func(double a){
+}
+```
+
+```
+void func(int a, double b){
+}
+```
+
+```
+void func(double a, int b){
+}
+```
+
+
 
 ## Pointers
 Memory can be accessed through pointers.
@@ -759,5 +795,62 @@ int main(){
    
    cout << ref << endl;   // 1000, the result of func() is the alternative name(reference) of static variable a, func() = 1000 is equal to let a = 1000, then ref is equal to 1000 also.
    cout << ref << endl;   // 1000
+}
+```
+
+## Object_Oriented_Programming
+
+#### 1. Encapsulation
+
+###### 1. How to apply Encapsulation
+```
+class Circle{
+public:
+   int m_r;                   // attribute
+   
+   double perimeter(){        // method
+      return 2 * PI * m_r;
+   };
+}
+
+int main(){
+   Circle c;
+   c.m_r = 4;
+   c.perimeter();
+
+   return 0;
+}
+```
+
+###### 2. Public, protected and private
+public:     Members inside the class can access, members outside the class can access.
+protected:  Members inside the class can access, members outside the class can not access.
+private:    Members inside the class can access, members outside the class can not access.
+
+The difference between protected and private will be explained in Inheritance.
+
+```
+class Person{
+public:
+   string m_Name;
+  
+protected:
+   string m_Car;
+   
+private:
+   int m_Password;
+
+public:
+   void func(){
+      m_Name = "Matt";
+      m_Car = "Toyota";
+      m_Password = 123456;
+   }
+}
+
+int main(){
+   
+
+   return 0;
 }
 ```
