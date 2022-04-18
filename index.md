@@ -828,6 +828,7 @@ protected:  Members inside the class can access, members outside the class can n
 private:    Members inside the class can access, members outside the class can not access.
 
 The difference between protected and private will be explained in Inheritance.
+Struct: default is public, Class: default is private.
 
 ```
 class Person{
@@ -849,8 +850,30 @@ public:
 }
 
 int main(){
+   Person p_1;
    
+   p_1.m_Name = "Jonny";
+   p_1.m_Car = "Honda";       // Error!
+   p_1.m_Password = 123;      // Error!
 
    return 0;
+}
+```
+###### 3. Initialize and delete objects
+
+Constructors: When creating a new object, assign values to the members of this object. Parameters allowed. Overloading allowed.
+Destructors: Clean the object. No parameters. Overloading not allowed.
+```
+Class Person{
+public:
+   
+   Person(){
+      cout << "This is constructor." << endl;
+   }
+
+   ~Person(){
+      cout << "This is destructor." << endl;
+   }
+
 }
 ```
