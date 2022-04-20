@@ -992,7 +992,72 @@ int main(){
 ```
 ![avatar](/pics/shallow_copy.png)
 
-Solve it by using deep copy.
+Solve it by using deep copy(Implementing your own copy constructor).
+```
+class Person{
+public:
+   int m_Age;
+   int *m_Height;                // Going to use "new"
+
+public:
+   Person(int age, int height){
+      m_Age = age;
+      m_Height = new int(height);
+   }
+   
+   Person(const Person &p){
+      m_Age = p.age
+      m_Height = mew int(*p.m_Height);
+   }
+   
+   ~Person(){
+      cout << "Delete m_Height here." << endl;
+      if(m_Height != NULL){
+         delete m_Height;
+         m_Height = NULL;
+      }
+   }
+}
+
+void test(){
+   Person p_1(22, 160);
+   Person p_2(p1);
+}
+
+int main(){
+   test();
+
+   return 0;
+}
+```
+
+###### 4. Constructor initializer list
+```
+class Person{
+public:
+   int m_A;
+   int m_B;
+   int m_C;
+  
+public:
+   Person():m_A(10),m_B(20),m_C(30){
+   }
+
+}
 ```
 
 ```
+class Person{
+public:
+   int m_A;
+   int m_B;
+   int m_C;
+  
+public:
+   Person(int a, int b, int c):m_A(a),m_B(b),m_C(c){
+   }
+
+}
+```
+
+###### 5. 
