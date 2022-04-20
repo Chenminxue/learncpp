@@ -859,7 +859,9 @@ int main(){
    return 0;
 }
 ```
-### 1. Initialize and delete objects
+### 2. Initialize and delete objects
+
+###### 1. Constructors and Destructors
 
 Constructors: When creating a new object, assign values to the members of this object. Parameters allowed. Overloading allowed.
 Destructors: Clean the object. No parameters. Overloading not allowed.
@@ -889,6 +891,8 @@ public:
 
 }
 
+// Three ways to use it.
+
 void method_1(){
    Person p_1;
    Person p_2(22);
@@ -913,4 +917,82 @@ int main(){
    
    return 0;
 }
+```
+
+###### 2. When to use copy constructor
+1. Create an new object by copying.
+
+```
+void test_1(){
+   Person p_1(20);
+   Person p_2(p1);
+}
+```
+
+2. Pass by value.
+
+```
+void func(Person p){
+
+}
+
+void test_2(){
+   Person p;
+   func(p);             // Pass by value, it will call copy constructor.
+}
+```
+
+3. Return local object
+
+```
+Person func(){
+   Person p_1;
+   return p_1;
+}
+
+void test_3(){
+   Person p = func();    // While returing func() will call copy constructor to save it to p.
+}
+```
+
+###### 3. Deep copy and shallow copy
+
+shallow cause error here because using "new".
+```
+class Person{
+public:
+   int m_Age;
+   int *m_Height;                // Going to use "new"
+
+public:
+   Person(int age, int height){
+      m_Age = age;
+      m_Height = new int(height);
+   }
+   
+   ~Person(){
+      cout << "Delete m_Height here." << endl;
+      if(m_Height != NULL){
+         delete m_Height;
+         m_Height = NULL;
+      }
+   }
+}
+
+void test(){
+   Person p_1(22, 160);
+   Person p_2(p1);
+}
+
+int main(){
+   test();
+
+   return 0;
+}
+```
+![avatar](/pics/shallow_copy.png)
+
+Solve it by using deep copy.
+```
+
 ```
