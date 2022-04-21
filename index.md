@@ -666,10 +666,10 @@ int main(){
 ## Memory_Layout
 
 Memory layout model:
-1. Text Segment: Contains binary executable instructions. Shared and only readable.
-2. Global Segment(Initialized and Uninitialized Data Segments): Store global variables, static variables and constants.
-4. Stack: Automatically allocate and free by the compiler. Stores the values of the parameters of the function, local variables, etc.
-5. Heap: Manual allocate and free by the programmer. If not de freed manually, it will be reclaimed by the operating system at the end of the program.
+- Text Segment: Contains binary executable instructions. Shared and only readable.
+- Global Segment(Initialized and Uninitialized Data Segments): Store global variables, static variables and constants.
+- Stack: Automatically allocate and free by the compiler. Stores the values of the parameters of the function, local variables, etc.
+- Heap: Manual allocate and free by the programmer. If not de freed manually, it will be reclaimed by the operating system at the end of the program.
 
 Data stored in different segments are given different life cycles. Make programming more flexible.
 
@@ -920,7 +920,7 @@ int main(){
 ```
 
 ###### 2. When to use copy constructor
-1. Create an new object by copying.
+- Create an new object by copying.
 
 ```
 void test_1(){
@@ -929,7 +929,7 @@ void test_1(){
 }
 ```
 
-2. Pass by value.
+- Pass by value.
 
 ```
 void func(Person p){
@@ -942,7 +942,7 @@ void test_2(){
 }
 ```
 
-3. Return local object
+- Return local object
 
 ```
 Person func(){
@@ -1060,4 +1060,111 @@ public:
 }
 ```
 
-###### 5. 
+###### 5. An object is a member of another class
+
+```
+class A{}
+
+class B{
+   A a;
+}
+```
+
+Call constructor A first(create a first), then call constructor B.
+Call destructor B first(delete object of class B first), then call destructor A.
+
+
+###### 6. Static data members
+
+- All objects of a class share this data. It does not belong to any single object.
+- Allocating memory during compilation.
+- Declare inside the class, initialize outside the class.
+- Can be accessed by class name and object.
+
+```
+class Person{
+public:
+   static int m_Age;
+}
+
+int Person::m_Age = 100;            // Initialize outside the class.
+
+void test(){
+   Person p_1;
+   
+   Person p_2;
+   p_2.m_Age = 200;
+   cout << p_1.m_Age << endl;       // 200, p_1 and p_2 are sharing static member m_Age.
+   cout << Person::m_Age << endl;   // Access by class name.
+}
+
+int main(){
+   test();
+
+   return 0;
+}
+```
+
+
+###### 7. Static member functions
+
+- All objects share same functions.
+- static members functions can only access static data members because a static member function is global to all objects, it cannot tell which object an regular member variable belongs to.
+- Can be accessed by class name and object.
+
+###### 8. Memory allocation of a object
+
+1 byte for an empty object.
+```
+class Person{
+
+}
+
+void test (){
+   Person p;
+   cout << sizeof(p) << endl;          // Compiler will allocate 1 byte for an empty object to distinguish between different empty objects.
+}
+```
+
+4 bytes for this object.
+```
+class Person{
+   int m_Age;                          // belongs to the object
+   static int m_Score;                 // Does not belong to object
+   void func_1(){}                     // Does not belong to object
+   static void func_2(){}              // Does not belong to object
+}
+
+void test (){
+   Person p;
+   cout << sizeof(p) << endl;
+```
+
+###### 9. this pointer
+
+- Resolve name conflicts.
+- Return object itself(*this)
+
+```
+class Person{
+public:
+   int age
+public:
+   Person(int age){
+      this->age = age;
+   }
+   
+   Person Add(Person &p){
+      this->age += p.age;
+      return *this            // return object itself
+   }
+}
+
+void test(){
+   Person p_1(10);
+   
+   Person p_2(10);
+   
+   p_2.Add(p_1).Add(p_1).Add(p_1);     // 40
+}
+```
