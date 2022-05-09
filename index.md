@@ -1168,3 +1168,6 @@ void test(){
    p_2.Add(p_1).Add(p_1).Add(p_1);     // 40
 }
 ```
+
+###### 10. Function members with const
+
