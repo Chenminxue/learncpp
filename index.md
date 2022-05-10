@@ -1169,5 +1169,166 @@ void test(){
 }
 ```
 
-###### 10. Function members with const
+###### 10. Member functions with const
 
+- const functions
+1. Members acn not be modified.
+2. Keyword 'mutable' can disable the function of const.
+3. const Person * const this;
+
+```
+class Person{
+public:
+
+   void showInfo() const {
+      m_A = 100;           // Error.
+      m_B = 100;           // OK.
+   }
+   
+   int m_A;
+   mutable int m_B;
+}
+```
+
+- const objects
+1. Unable to modify the members inside the object expect mutable.
+2. const object can only call const functions.
+```
+const Person p;
+```
+
+### 3. Friend calss and function
+- Global function as friend
+In the program code, some private properties also want to be accessed by some functions outside the class, so friends are needed.
+
+```
+class Building{
+   
+   friend void person(Building & building);     // Friend
+
+private:
+   string m_Bedroom;
+  
+public:
+   Building(){
+      m_Bedroom = "My Bedroom!";
+   }
+}
+
+void person(Building &building){
+   cout << building.m_Bedroom << endl;    // m_Bedroom can be accessed by using 'friend'. 
+}
+```
+
+- Class as friend
+
+```
+class Building;
+
+class Person{
+public:
+   Person();
+   
+public:
+   Building * building;
+   
+public:
+   void visit();
+}
+
+class Building{
+   friend class Person;          // Friend
+
+public:
+   Building();
+
+public:
+   string m_Livingroom;
+private:
+   string m_Bedroom;
+}
+
+Building::Building(){
+   m_Livingroom = "My living room!";
+   m_Bedroom = "My bedroom!";
+}
+
+Person::Person(){
+   building = new Building;
+}
+
+Person::void visit(){
+   cout << "Is visiting " << building->m_Livingroom << endl;
+   
+   cout << "Is visiting " << building->m_Bedroom << endl; 
+}
+
+void test(){
+   Person p;
+   p.visit();
+}
+
+int main(){
+   test();
+   
+   return 0;
+}
+```
+- Member functions as friend.
+
+```
+class Building;
+
+class Person{
+public:
+   Person();
+   
+public:
+   Building * building;
+   
+public:
+   void visit_1();      // Let it can access private members of class Building.
+   void visit_2();      // Let it can not access private members of class Building.
+}
+
+class Building{
+   friend void Person::visit_1();         // Friend
+
+public:
+   Building();
+
+public:
+   string m_Livingroom;
+private:
+   string m_Bedroom;
+}
+
+Building::Building(){
+   m_Livingroom = "My living room!";
+   m_Bedroom = "My bedroom!";
+}
+
+Person::Person(){
+   building = new Building;
+}
+
+Person::void visit_1(){
+   cout << "Is visiting " << building->m_Livingroom << endl;
+}
+
+Person::void visit_2(){  
+   cout << "Is visiting " << building->m_Bedroom << endl; 
+}
+
+void test(){
+   Person p;
+   p.visit_1();
+   p.visit_2();
+}
+
+int main(){
+   test();
+   
+   return 0;
+}
+```
