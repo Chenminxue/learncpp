@@ -977,7 +977,7 @@ public:
          m_Height = NULL;
       }
    }
-}
+};
 
 void test(){
    Person p_1(22, 160);
@@ -1017,7 +1017,7 @@ public:
          m_Height = NULL;
       }
    }
-}
+};
 
 void test(){
    Person p_1(22, 160);
@@ -1043,7 +1043,7 @@ public:
    Person():m_A(10),m_B(20),m_C(30){
    }
 
-}
+};
 ```
 
 ```
@@ -1057,17 +1057,17 @@ public:
    Person(int a, int b, int c):m_A(a),m_B(b),m_C(c){
    }
 
-}
+};
 ```
 
 ###### 5. An object is a member of another class
 
 ```
-class A{}
+class A{};
 
 class B{
    A a;
-}
+};
 ```
 
 Call constructor A first(create a first), then call constructor B.
@@ -1085,7 +1085,7 @@ Call destructor B first(delete object of class B first), then call destructor A.
 class Person{
 public:
    static int m_Age;
-}
+};
 
 int Person::m_Age = 100;            // Initialize outside the class.
 
@@ -1118,7 +1118,7 @@ int main(){
 ```
 class Person{
 
-}
+};
 
 void test (){
    Person p;
@@ -1133,7 +1133,7 @@ class Person{
    static int m_Score;                 // Does not belong to object
    void func_1(){}                     // Does not belong to object
    static void func_2(){}              // Does not belong to object
-}
+};
 
 void test (){
    Person p;
@@ -1158,7 +1158,7 @@ public:
       this->age += p.age;
       return *this            // return object itself
    }
-}
+};
 
 void test(){
    Person p_1(10);
@@ -1187,7 +1187,7 @@ public:
    
    int m_A;
    mutable int m_B;
-}
+};
 ```
 
 - const objects
@@ -1213,7 +1213,7 @@ public:
    Building(){
       m_Bedroom = "My Bedroom!";
    }
-}
+};
 
 void person(Building &building){
    cout << building.m_Bedroom << endl;    // m_Bedroom can be accessed by using 'friend'. 
@@ -1234,7 +1234,7 @@ public:
    
 public:
    void visit();
-}
+};
 
 class Building{
    friend class Person;          // Friend
@@ -1246,7 +1246,7 @@ public:
    string m_Livingroom;
 private:
    string m_Bedroom;
-}
+};
 
 Building::Building(){
    m_Livingroom = "My living room!";
@@ -1289,7 +1289,7 @@ public:
 public:
    void visit_1();      // Let it can access private members of class Building.
    void visit_2();      // Let it can not access private members of class Building.
-}
+};
 
 class Building{
    friend void Person::visit_1();         // Friend
@@ -1301,7 +1301,7 @@ public:
    string m_Livingroom;
 private:
    string m_Bedroom;
-}
+};
 
 Building::Building(){
    m_Livingroom = "My living room!";
@@ -1334,5 +1334,66 @@ int main(){
 ```
 
 4. Operator Overloading
-- '+' overloading
 
+Redefine an existing operator, for example '+' operator can be only used for adding numbers. What if we want to use '+' to add two objects as we want?
+Operator overloading can also implement functional overloading.
+###### 1. '+' overloading
+- Overloading with class function
+```
+class Person{
+public:
+   int m_A;
+   int m_B;
+   
+public:
+   Person operator+(Person &p){           // Implement overloading. 
+      Person temp;
+      temp.m_A = this->m_A + p.m_A;
+      temp.m_B = this->m_B + p.m_B;
+      return temp;
+   }
+
+};
+
+void test(){
+   Person p_1;
+   p_1.m_A= 10；
+   p_1.m_B= 10；
+   
+    Person p_2;
+   p_2.m_A= 10；
+   p_2.m_B= 10；
+   
+   Person p_3 = p_1 + p_2;                   // Simplfied by compiler. Same as Person p_3 = p_1.operator+(p_2);
+}
+```
+
+- Overloading with global function
+```
+class Person{
+public:
+   int m_A;
+   int m_B;
+};
+
+Person operator+(Person &p_1, Person &p_2){              // Implement overloading
+      Person temp;
+      temp.m_A = p_1.m_A + p_2.m_A;
+      temp.m_B = p_1.m_B + p_2.m_B;
+      return temp;
+}
+
+void test(){
+   Person p_1;
+   p_1.m_A= 10；
+   p_1.m_B= 10；
+   
+    Person p_2;
+   p_2.m_A= 10；
+   p_2.m_B= 10；
+   
+   Person p_3 = p_1 + p_2;                                // Simplfied by compiler. Same as Person p_3 = operator+(p_1, p_2);
+}
+```
+
+###### 2. 
