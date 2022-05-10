@@ -1197,7 +1197,7 @@ public:
 const Person p;
 ```
 
-### 3. Friend calss and function
+### 3. Friend class and function
 - Global function as friend
 In the program code, some private properties also want to be accessed by some functions outside the class, so friends are needed.
 
@@ -1332,3 +1332,7 @@ int main(){
    return 0;
 }
 ```
+
+4. Operator Overloading
+- '+' overloading
+
