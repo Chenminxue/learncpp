@@ -1333,7 +1333,7 @@ int main(){
 }
 ```
 
-4. Operator Overloading
+### 4. Operator Overloading
 
 Redefine an existing operator, for example '+' operator can be only used for adding numbers. What if we want to use '+' to add two objects as we want?
 Operator overloading can also implement functional overloading.
@@ -1402,4 +1402,56 @@ Do it by yourself.
 Do it by yourself.
 ###### 4. '=' overloading
 
+```
+class Person{
+public:
 
+   Person(int age){
+      m_Age = new int(age);
+   }
+   
+   int *m_Age;
+   
+   Person& operator=(Person &p){
+   if(m_Age != NULL){
+      delete m_Age;
+      m_Age = NULL;
+      
+      return *this;
+   }
+
+   m_Age = new int(*p.m_Age);
+}
+   
+   ~Person(){
+      if(m_Age != NULL){
+         delete m_Age;
+         m_Age = NULL;
+      }
+   }
+};
+
+void test_1(){
+   Person p_1(18);
+   
+   Person p_2(20);
+   
+   p_2 = p_1;
+   
+   cout << *p_1.m_Age = << endl;
+   
+   cout << *p_2.m_Age = << endl;
+}
+
+int main(){
+   test_1();
+
+   return 0;
+}
+```
+###### 5. '==' overloading
+Do it by yourself.
+###### 6. '()' overloading
+Do it by yourself.
+
+### 5. Inheritance
