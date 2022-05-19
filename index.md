@@ -1360,7 +1360,7 @@ void test(){
    p_1.m_A= 10；
    p_1.m_B= 10；
    
-    Person p_2;
+   Person p_2;
    p_2.m_A= 10；
    p_2.m_B= 10；
    
@@ -1396,4 +1396,10 @@ void test(){
 }
 ```
 
-###### 2. 
+###### 2. '<<' overloading
+Do it by yourself.
+###### 3. '++' overloading
+Do it by yourself.
+###### 4. '=' overloading
+
+
