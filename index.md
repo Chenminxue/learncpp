@@ -1472,4 +1472,4 @@ class B : public A{
 - protected
 - private
 
-![avatar](/pics/inheritance.png)
+![avatar](/pics/3_ways_inheritance.png)
