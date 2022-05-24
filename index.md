@@ -1455,3 +1455,21 @@ Do it by yourself.
 Do it by yourself.
 
 ### 5. Inheritance
+###### 1. Basic 
+The Derived class inherits the properties of the base class and can also have its own properties.
+```
+class A{
+   ...
+};
+
+class B : public A{
+   ...
+};
+```
+
+###### 2. Three ways of inheritance
+- public
+- protected
+- private
+
+![avatar](/pics/inheritance.png)
