@@ -1533,3 +1533,85 @@ void test(){
 }
 ```
 - How to solve it
+By using virtual inheritance.
+```
+class A{                      // Virtual base class
+public:
+   int m_Age; 
+};
+
+class B : virtual public A{};
+
+class C : virtual public A{};
+
+class D : public B, public C{
+   
+};
+
+void test(){
+   D d;
+   d.m_Age = 10;                 // Correct! They all share same m_Age.
+   d.B::m_Age = 20;
+   d.C::m_Age = 30;
+   cout << d.B::m_Age << endl;   // 30, B::m_Age is the C::m_Age.
+}
+```
+
+### 6. Polymorphism
+
+
+- Static polymorphism(Determine the address of the function while compiling): function overloading, operator overloading
+- Dynamic polumorphism(Determine the address of the function while excuting): derived class, virtual functions
+
+
+Static polymorphism, the outcome is "Animal is speaking" because the address of speak function already been determined while compiling and the object is Animal class, it will navigate to the speak function of the Animal class.
+```
+class Animal{
+public:
+   void speak(){
+      cout << "Animal is speaking!" << endl; 
+   }
+};
+
+class Cat : public Animal{
+public:
+   void speak(){
+      cout << "Cat is speaking!" << endl;
+   }
+};
+
+void doSpeak(Animal & animal){
+   animal.speak();
+}
+
+void test(){
+   Cat cat;
+   doSpeak(cat);
+}
+```
+
+ Dynamic polymorphism, after adding keyword 'virtual', the address will be determined later. Now the outcome will be "Cat is speaking!".
+ ```
+class Animal{
+public:
+   virtual void speak(){
+      cout << "Animal is speaking!" << endl; 
+   }
+};
+
+class Cat : public Animal{
+public:
+   void speak(){
+      cout << "Cat is speaking!" << endl;
+   }
+};
+
+void doSpeak(Animal & animal){
+   animal.speak();
+}
+
+void test(){
+   Cat cat;
+   doSpeak(cat);
+}
+```
