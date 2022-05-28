@@ -1459,12 +1459,27 @@ Do it by yourself.
 The Derived class inherits the properties of the base class and can also have its own properties.
 ```
 class A{
-   ...
+public:
+   Base(){
+      m_A = 100;
+   }
+   
+   int m_A;
 };
 
 class B : public A{
-   ...
+     Son(){
+     m_A = 200;
+   }
+   
+   int m_A;
 };
+
+void test(){
+   Son s;
+   cout << s.m_A << endl;        // 200
+   cout << s.Base::m_A << endl;  // 100
+}
 ```
 
 ###### 2. Three ways of inheritance
@@ -1473,3 +1488,48 @@ class B : public A{
 - private
 
 ![avatar](/pics/3_ways_inheritance.png)
+
+###### 3. Multiple inheritance
+Not recommended to use.
+```
+class A
+{
+   ...
+};
+  
+class B
+{
+public:
+   ...
+};
+  
+class C: public B, public A
+{
+   ...
+};
+```
+
+###### 4. Virtual inheritance
+- Problems with diamond inheritance
+```
+class A{
+public:
+   int m_Age; 
+};
+
+class B : public A{};
+
+class C : public A{};
+
+class D : public B, public C{
+   
+};
+
+void test(){
+   D d;
+   d.m_Age = 10;              // Error! It doesn't know which class belongs to.
+   d.B::m_Age = 20;
+   d.C::m_Age = 30;
+}
+```
+- How to solve it
