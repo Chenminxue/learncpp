@@ -17,6 +17,7 @@
 - [Memory_Layout](#Memory_Layout)
 - [Reference](#Reference)
 - [Object_Oriented_Programming](#Object_Oriented_Programming)
+- [Read_and_write_files](#Read_and_write_files)
 
 ## Comments
 
@@ -1558,6 +1559,7 @@ void test(){
 ```
 
 ### 6. Polymorphism
+###### 1. Basic
 Polymorphism occurs when a base class pointer or reference points to a derived class object. ``` Animal & animal = cat;```
 
 - Static polymorphism(Determine the address of the function while compiling): function overloading, operator overloading
@@ -1616,3 +1618,83 @@ void test(){
 }
 ```
 ![avatar](/pics/polymorphism.png)
+
+###### 2. Pure virtual functions and abstract classes(Interface)
+When a class has a pure virtual function, it will become an abstract class. An abstract class cannot create an object and derived classes must overwrite pure virtual functions.
+```
+virtual int func() = 0;
+```
+###### 3. Virtual destructor and pure virtual destructor
+When polymorphism occurs(``` Animal & animal = cat;```), if derived class has some attributes been created in heap, then while releasing base pointer, the deconstructor of derived class cannot be called. Virtual destructor and pure virtual destructor can solve this issue.
+
+```
+class Animal{
+public:
+   virtual void speak() = 0;
+};
+
+class Cat: public Animal{
+public:
+   Cat(string name){
+      m_Name = new string(name);
+   }
+
+   virtual void speak(){
+      cout << *m_Name << "cat is speaking!" << endl;
+   }
+   string *m_Name;
+   
+   ~Cat(){                                // This one won't be called because if you delete animal, it will call the destructor of base class only.
+      if(m_Name != NULL){
+         delete m_Name;
+         m_Name = NULL;
+      }
+   }
+};
+
+void test(){
+   Animal * animal = new Cat("Tom");
+   animal -> speak();
+   delete animal;
+}
+```
+
+How to solve it:
+```
+class Animal{
+public:
+   virtual void speak() = 0;
+   
+   virtual ~Animal(){
+   
+   }
+};
+
+class Cat: public Animal{
+public:
+   Cat(string name){
+      m_Name = new string(name);
+   }
+
+   virtual void speak(){
+      cout << *m_Name << "cat is speaking!" << endl;
+   }
+   string *m_Name;
+   
+   ~Cat(){                                
+      if(m_Name != NULL){
+         delete m_Name;
+         m_Name = NULL;
+      }
+   }
+};
+
+void test(){
+   Animal * animal = new Cat("Tom");
+   animal -> speak();
+   delete animal;
+}
+```
+
+## Read_and_write_files
+### 1. Write files
