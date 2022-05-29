@@ -18,6 +18,7 @@
 - [Reference](#Reference)
 - [Object_Oriented_Programming](#Object_Oriented_Programming)
 - [Read_and_write_files](#Read_and_write_files)
+- [Templates](#Templates)
 
 ## Comments
 
@@ -1703,5 +1704,79 @@ Use header file ```<fstream>```.
 - fstream: read and write
    
    
-### 1. Write files
+### 1. Write ASCII files
+```
+#include <fstream>
 
+ofstream ofs;                    // Create stream object.
+
+ofs.open("path", ios::out);       // ios::out means open the file for writing. other ways: ios::out, ios::ate, ios::app, ios::trunc, ios::binary
+
+ofs << "content";
+
+ofs.close();
+```
+
+### 2. Read ASCII files
+```
+#include <fstream>
+
+ifstream ifs;                          // Create stream object.
+
+ifs.open("path", ios::in);
+
+char buf[1024] = {0};
+while(ifs >> buf){                     // Fisrt method to read the file.
+   cout << buf << endl;
+}
+
+while(ifs.getline(buf, sizeof(buf))){  // Second method.
+   cout << buf << endl;
+}
+
+string buf;                            // Third method.
+while(getline(ifs.buf)){
+   cout << buf << endl;
+}
+
+char c;                                // Fourth method, not recommand.
+while((c = ifs.get()) != EOF){
+   cout << c;
+}
+
+ifs.close();
+```
+
+### 3. Write binary files
+```
+class Person{
+public:
+   char m_Name[64];
+   int m_Age;
+};
+
+void test(){
+   ofstream ofs("person.txt", ios::out | ios::binary);
+   
+   Person p = {"Matt", 26};
+   
+   of.write((const char *) &p, sizeof(p));
+   
+   ofs.close();
+}
+```
+
+### 4. Read binary files
+```
+ifstream ifs;
+
+ifs.open("person.txt", ios::in | ios::binary);
+
+Person p;
+
+ifs.read((char *) &p, sizeof(Perosn));
+
+ifs.close();
+```
+
+## Templates
