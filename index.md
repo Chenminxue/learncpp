@@ -1558,7 +1558,7 @@ void test(){
 ```
 
 ### 6. Polymorphism
-
+Polymorphism occurs when a base class pointer or reference points to a derived class object. ``` Animal & animal = cat;```
 
 - Static polymorphism(Determine the address of the function while compiling): function overloading, operator overloading
 - Dynamic polumorphism(Determine the address of the function while excuting): derived class, virtual functions
@@ -1615,3 +1615,4 @@ void test(){
    doSpeak(cat);
 }
 ```
+![avatar](/pics/polymorphism.png)
