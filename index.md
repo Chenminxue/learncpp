@@ -1697,4 +1697,11 @@ void test(){
 ```
 
 ## Read_and_write_files
+Use header file <fstream>.
+- ofstream: write
+- ifstream: read
+- fstream: read and write
+   
+   
 ### 1. Write files
+
