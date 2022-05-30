@@ -1780,3 +1780,87 @@ ifs.close();
 ```
 
 ## Templates
+### 1. Function templates
+###### 1. Concepts
+```
+template<typename T>                   // T can be any letters.
+```
+
+```
+void swap(int &a, int &b){             // This function can only swap integers.
+   int temp = a;
+   a = b;
+   b = temp;
+}
+
+template<typename T>                   // a and b must defined while using it and they must have same data types.
+void tSwap(T &a, T &b){
+   T temp = a;
+   a = b;
+   b = temp;
+}
+
+void test(){
+   int a = 10;
+   int b = 20;
+   
+   tSwap(a, b);                         // Auto.
+   tSwap<int>(a, b);                    // Manual.
+}
+```
+
+###### 2. Difference between regular functions and template functions
+Regular functions have implicit conversions, but template functions don't have.
+```
+int add(int &a, int &b){
+   return c = a + b;
+}
+
+void test(){
+   int a = 10;
+   char c = 'c'                          // c - 99
+   cout << add(a, c) << endl;            // Able to excute.
+}
+```
+
+###### 3. Limitation of templates
+```
+template<typename T>
+void fun(T a, T b){
+   a =  b;                                // Won't be excuted while a and b are arrays.
+}
+```
+Operator overloading can solve this issue.
+
+### 2. Class templates
+###### 1. Concepts
+```
+template<typename T>                       // typename can also use class.
+class Person{
+   ...
+   };
+ ```
+ 
+ ```
+ template<class NameType, class AgeType>
+ class Person{
+ public:
+   Person(NameType name, AgeType age){
+      m_Name = name;
+      m_Age = age;
+   }
+ 
+   NameType m_Name;
+   AgeType m_Age;
+ };
+ 
+ void test(){
+   Person<string, int> p_1("Matt", 26);
+ }
+ ```
+ 
+###### 2. Difference between function templates and class templates
+ - No auto derive for class templates, you have to define the data types while using it.
+ - class templates can have default parameters.
+
+###### 3. 
