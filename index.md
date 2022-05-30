@@ -19,6 +19,7 @@
 - [Object_Oriented_Programming](#Object_Oriented_Programming)
 - [Read_and_write_files](#Read_and_write_files)
 - [Templates](#Templates)
+- [STL](#STL)
 
 ## Comments
 
@@ -1863,4 +1864,112 @@ class Person{
  - No auto derive for class templates, you have to define the data types while using it.
  - class templates can have default parameters.
 
-###### 3. 
+###### 3. Template object as function parameter
+```
+template<class T1, class T2>
+class Person{
+public:
+   Person(T1 name, T2 age){
+      m_Name = name;
+      m_Age = age;
+   }
+   
+   void showInfo(){
+      cout << "Person info!" << endl;
+   }
+   
+   T1 m_Name;
+   T2 m_Age
+};
+
+void printPerson(Person<string, int> &p){
+   p.showInfo();
+}
+
+void test_1(){
+   Person<string, int> p("Matt", 26);
+   printPerson(p);
+}
+```
+Or
+```
+template<class T1, class T2>
+class Person{
+public:
+   Person(T1 name, T2 age){
+      m_Name = name;
+      m_Age = age;
+   }
+   
+   void showInfo(){
+      cout << "Person info!" << endl;
+   }
+   
+   T1 m_Name;
+   T2 m_Age
+};
+
+template<class T1, T2>
+void printPerson(Person<T1, T2> &p){
+   p.showInfo();
+}
+
+void test_1(){
+   Person<string, int> p("Matt", 26);
+   printPerson(p);
+}
+```
+Or
+```
+template<class T1, class T2>
+class Person{
+public:
+   Person(T1 name, T2 age){
+      m_Name = name;
+      m_Age = age;
+   }
+   
+   void showInfo(){
+      cout << "Person info!" << endl;
+   }
+   
+   T1 m_Name;
+   T2 m_Age
+};
+
+template<class T>
+void printPerson(T &p){
+   p.showInfo();
+}
+
+void test_1(){
+   Person<string, int> p("Matt", 26);
+   printPerson(p);
+}
+```
+
+###### 4. Templates and inheritance
+```
+template<class T>
+class Base{
+   T m;
+};
+
+class Son : public Base<int>{                   // Data type must be confirmed.
+   
+};
+```
+Or
+```
+template<class T>
+class Base{
+   T m;
+};
+
+template<class T1, class T2>
+class Son : public Base<T2>{                   // Data type must be confirmed.
+   T1 obj;
+};
+```
+
+## STL
