@@ -2007,3 +2007,30 @@ void test(){
    for_each(v.begin(), v.end(), myPrint);
 }
 ```
+
+```
+class Person{
+public:
+   Person(string name, int age){
+      m_Nmae = name;
+      m_Age = age;
+   }
+
+   string m_Name;
+   int m_Age;
+};
+
+void test(){
+   vector<Person> v;
+   
+   Person p_1("Matt", 26);
+   Person p_2("Amy", 27);
+   Person p_3("Bob", 28);
+   
+   v.push_back(p_1);
+   v.push_back(p_2);
+   v.push_back(p_3);
+   
+   for(vector<Person>::iterator)
+}
+```
