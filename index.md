@@ -1973,3 +1973,37 @@ class Son : public Base<T2>{                   // Data type must be confirmed.
 ```
 
 ## STL
+### 1. vector
+- Container: ```vector```
+- Algorithm: ```for_each```
+- Iterator: ```vector<int>::iterator```
+
+```
+#include <vector>
+#include <algorithm>
+
+void myPrint(int val){
+   cout << val << endl;
+}
+
+void test(){
+   vector<int> v;
+   
+   v.push_back(10);                             // Insert data into the container.
+   v.push_back(20);
+   v.push_back(30);
+   
+   vector<int>::iterator itBegin = v.begin();   // Iterator points at the beginning of the vector.
+   vector<int>::iterator itEnd = v.end();
+   while(itBegin != itEnd){                     // Get the data one by one.
+      cout << *itBegin << endl;
+      itBegin++;
+   }
+   
+   for (vector<int>::iterator it = v.begin(); it != v.end(); it++){     // Second way for getting the data from vector.
+      cout << *it << endl;
+   }
+   
+   for_each(v.begin(), v.end(), myPrint);
+}
+```
