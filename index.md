@@ -20,6 +20,7 @@
 - [Read_and_write_files](#Read_and_write_files)
 - [Templates](#Templates)
 - [STL](#STL)
+- [Functors](#Functors)
 
 ## Comments
 
