@@ -2574,3 +2574,44 @@ void test(){
 ```
 
 ## STL built in algorithms
+### 1. Iterate
+```
+for_each
+```
+
+Using regular functions:
+```
+void print_1(int val){
+   cout << val << endl;
+}
+
+void test(){
+   vector<int> v;
+   
+   for (i = 0; i < 10; i++){
+      v.push_back(i);
+   }
+   
+   for_each(v.begin(), v.end(), print_1());
+}
+```
+
+Using functors:
+```
+class print_1{
+public:
+   void operator()(int val){
+      cout << val << endl;
+   }
+};
+
+void test(){
+   vector<int> v;
+   
+   for (i = 0; i < 10; i++){
+      v.push_back(i);
+   }
+   
+   for_each(v.begin(), v.end(), print_1());
+}
+```
