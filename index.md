@@ -1973,6 +1973,8 @@ class Son : public Base<T2>{                   // Data type must be confirmed.
 ```
 
 ## STL
+reference: https://www.geeksforgeeks.org/
+
 ### 1. vector
 Similar to array, but the length can be changed arbitrarily when in use.
 - Container: ```vector```
@@ -2035,20 +2037,137 @@ void test(){
    for(vector<Person>::iterator)
 }
 ```
-begin() – Returns an iterator pointing to the first element in the vector.
 
-end() – Returns an iterator pointing to the theoretical element that follows the last element in the vector.
+1. Iterators:
+```begin()``` – Returns an iterator pointing to the first element in the vector.
 
-rbegin() – Returns a reverse iterator pointing to the last element in the vector (reverse beginning). It moves from last to first element
+```end()``` – Returns an iterator pointing to the theoretical element that follows the last element in the vector.
 
-rend() – Returns a reverse iterator pointing to the theoretical element preceding the first element in the 
+```rbegin()``` – Returns a reverse iterator pointing to the last element in the vector (reverse beginning). It moves from last to first element
 
-vector (considered as reverse end)
+```rend()``` – Returns a reverse iterator pointing to the theoretical element preceding the first element in the vector (considered as reverse end)
 
-cbegin() – Returns a constant iterator pointing to the first element in the vector.
+```cbegin()``` – Returns a constant iterator pointing to the first element in the vector.
 
-cend() – Returns a constant iterator pointing to the theoretical element that follows the last element in the vector.
+```cend()``` – Returns a constant iterator pointing to the theoretical element that follows the last element in the vector.
 
-crbegin() – Returns a constant reverse iterator pointing to the last element in the vector (reverse beginning). It moves from last to first element
+```crbegin()``` – Returns a constant reverse iterator pointing to the last element in the vector (reverse beginning). It moves from last to first element
 
-crend() – Returns a constant reverse iterator pointing to the theoretical element preceding the first element in the vector (considered as reverse end)
+```crend()``` – Returns a constant reverse iterator pointing to the theoretical element preceding the first element in the vector (considered as reverse end)
+
+2. Capacity:
+```size()``` – Returns the number of elements in the vector.
+
+```max_size()``` – Returns the maximum number of elements that the vector can hold.
+
+```capacity()``` – Returns the size of the storage space currently allocated to the vector expressed as number of elements.
+
+```resize(n)``` – Resizes the container so that it contains ‘n’ elements.
+
+```empty()``` – Returns whether the container is empty.
+
+```shrink_to_fit()``` – Reduces the capacity of the container to fit its size and destroys all elements beyond the capacity.
+
+```reserve()``` – Requests that the vector capacity be at least enough to contain n elements.
+
+3. Element access
+```reference operator [g]``` – Returns a reference to the element at position ‘g’ in the vector
+
+```at(g)``` – Returns a reference to the element at position ‘g’ in the vector
+
+```front()``` – Returns a reference to the first element in the vector
+
+```back()``` – Returns a reference to the last element in the vector
+
+```data()``` – Returns a direct pointer to the memory array used internally by the vector to store its owned elements.
+
+4. Modifiers:
+```assign()``` – It assigns new value to the vector elements by replacing old ones
+
+```push_back()``` – It push the elements into a vector from the back
+
+```pop_back()``` – It is used to pop or remove elements from a vector from the back.
+
+```insert()``` – It inserts new elements before the element at the specified position
+
+```erase()``` – It is used to remove elements from a container from the specified position or range.
+
+```swap()``` – It is used to swap the contents of one vector with another vector of same type. Sizes may differ.
+
+```clear()``` – It is used to remove all the elements of the vector container
+
+```emplace()``` – It extends the container by inserting new element at position
+
+```emplace_back()``` – It is used to insert a new element into the vector container, the new element is added to the end of the vector
+
+### 2. string
+1. Modifiers:
+```etline()```	This function is used to store a stream of characters as entered by the user in the object memory.
+
+```push_back()```	This function is used to input a character at the end of the string.
+
+```pop_back()```	Introduced from C++11(for strings), this function is used to delete the last character from the string.
+
+```copy(“char array”, len, pos)``` 	This function copies the substring in the target character array mentioned in its arguments. It takes 3 arguments, target char array, length to be copied, and starting position in the string to start copying.
+
+```swap()```	This function swaps one string with other.
+
+2. Capacity:
+```capacity()```	This function returns the capacity allocated to the string, which can be equal to or more than the size of the string. Additional space is allocated so that when the new characters are added to the string, the operations can be done efficiently.
+
+```resize()```	This function changes the size of the string, the size can be increased or decreased.
+
+```length()```	This function finds the length of the string.
+
+```shrink_to_fit()```	This function decreases the capacity of the string and makes it equal to the minimum capacity of the string. This operation is useful to save additional memory if we are sure that no further addition of characters has to be made.
+
+3. Iterator:
+```begin()```	This function returns an iterator to the beginning of the string.
+
+```end()```	This function returns an iterator to the end of the string.
+
+```rbegin()```	This function returns a reverse iterator pointing at the end of the string.
+
+```rend()```	This function returns a reverse iterator pointing at beginning of the string.
+
+### 3. Deque
+Double-ended queues are sequence containers with the feature of expansion and contraction on both ends.
+
+1. Modifiers:
+```deque::insert()```	Inserts an element. And returns an iterator that points to the first of the newly inserted elements.
+
+```deque::rbegin()```	Returns a reverse iterator which points to the last element of the deque (i.e., its reverse beginning).
+
+```deque::rend()```	Returns a reverse iterator which points to the position before the beginning of the deque (which is considered its reverse end).
+
+```deque::cbegin()```	Returns a constant iterator pointing to the first element of the container, that is, the iterator cannot be used to modify, only traverse the deque.
+
+```deque::max_size()```	Returns the maximum number of elements that a deque container can hold.
+
+```deque::assign()```	Assign values to the same or different deque container.
+
+```deque::resize()``` 	Function which changes the size of the deque.
+
+```deque::push_front()```	It is used to push elements into a deque from the front.
+
+```deque::push_back()``` 	This function is used to push elements into a deque from the back.
+
+```deque::pop_front() and deque::pop_back()```	pop_front() function is used to pop or remove elements from a deque from the front. pop_back() function is used to pop or remove elements from a deque from the back.
+
+```deque::front() and deque::back()```	front() function is used to reference the first element of the deque container. back() function is used to reference the last element of the deque container.
+
+```deque::clear() and deque::erase()``` 	clear() function is used to remove all the elements of the deque container, thus making its size 0. erase() function is used to remove elements from a container from the specified position or range.
+
+```deque::empty() and deque::size()```	empty() function is used to check if the deque container is empty or not. size() function is used to return the size of the deque container or the number of elements in the deque container.
+
+```deque::operator= and deque::operator[]```	operator= operator is used to assign new contents to the container by replacing the existing contents. operator[] operator is used to reference the element present at position given inside the operator.
+
+```deque::at() and deque::swap()```	at() function is used reference the element present at the position given as the parameter to the function. swap() function is used to swap the contents of one deque with another deque of same type and size.
+
+```deque::begin() and deque::end``` 	begin() function is used to return an iterator pointing to the first element of the deque container. end() function is used to return an iterator pointing to the last element of the deque container.
+
+```deque::emplace_front() and deque::emplace_back()``` 	emplace_front() function is used to insert a new element into the deque container. The new element is added to the beginning of the deque. emplace_back() function is used to insert a new element into the deque container. The new element is added to the end of the deque.
+
+```deque::find()```	Finds the element in the given range of numbers. Returns an iterator to the first element in the range [first,last] that compares equal to val. If no such element is found, the function returns last.
+
+### 4. 
