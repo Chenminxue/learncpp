@@ -2575,6 +2575,7 @@ void test(){
 
 ## STL built in algorithms
 ### 1. Iterate
+###### 1. for_each
 ```
 for_each
 ```
@@ -2615,3 +2616,106 @@ void test(){
    for_each(v.begin(), v.end(), print_1());
 }
 ```
+
+###### 2. transform
+```
+int main()
+{
+  int arr1[] = {1, 2, 3};
+  int arr2[] = {4, 5, 6};
+  int n = sizeof(arr1)/sizeof(arr1[0]);
+  int res[n];
+ 
+  // Single line code to add arr1[] and arr2[] and
+  // store result in res[]
+  transform(arr1, arr1+n, arr2, res, plus<int>());
+ 
+  for (int i=0; i<n; i++)
+    cout << res[i] << " ";
+}
+```
+
+### 2. Find
+```
+vector<int>::iterator it = find(v.begin(), v.end(), 5);
+```
+
+```
+find_if
+```
+
+```
+adjacent_find
+```
+
+```
+binary_search
+```
+
+```
+count
+```
+
+```
+count_if
+```
+
+### 3. Sort
+```
+sort(v.begin(), v.end());
+```
+
+```
+random_shuffle
+```
+
+```
+merge
+```
+
+```
+reverse
+```
+
+### 4. Copy and replace
+
+```
+copy(v_1.begin(), v_1.end(), v_2.begin());
+```
+
+```
+replace
+```
+
+```
+replace_if
+```
+
+```
+swap
+```
+
+### 5. Calculate
+```
+#include<numeric>
+
+int total = accumulate(v.begin(), v.end(), 0);        // plus 0
+```
+
+```
+fill
+```
+
+### 6. Sets
+```
+set_intersection(v_1.begin(), v_1.end(),v_2.begin(), v_2.end(), vTarget.begin());
+```
+
+```
+set_union
+```
+
+```
+set_difference
+```
+
