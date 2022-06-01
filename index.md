@@ -1974,6 +1974,7 @@ class Son : public Base<T2>{                   // Data type must be confirmed.
 
 ## STL
 ### 1. vector
+Similar to array, but the length can be changed arbitrarily when in use.
 - Container: ```vector```
 - Algorithm: ```for_each```
 - Iterator: ```vector<int>::iterator```
@@ -2034,3 +2035,20 @@ void test(){
    for(vector<Person>::iterator)
 }
 ```
+begin() – Returns an iterator pointing to the first element in the vector.
+
+end() – Returns an iterator pointing to the theoretical element that follows the last element in the vector.
+
+rbegin() – Returns a reverse iterator pointing to the last element in the vector (reverse beginning). It moves from last to first element
+
+rend() – Returns a reverse iterator pointing to the theoretical element preceding the first element in the 
+
+vector (considered as reverse end)
+
+cbegin() – Returns a constant iterator pointing to the first element in the vector.
+
+cend() – Returns a constant iterator pointing to the theoretical element that follows the last element in the vector.
+
+crbegin() – Returns a constant reverse iterator pointing to the last element in the vector (reverse beginning). It moves from last to first element
+
+crend() – Returns a constant reverse iterator pointing to the theoretical element preceding the first element in the vector (considered as reverse end)
