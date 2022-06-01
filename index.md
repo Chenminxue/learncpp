@@ -19,8 +19,9 @@
 - [Object_Oriented_Programming](#Object_Oriented_Programming)
 - [Read_and_write_files](#Read_and_write_files)
 - [Templates](#Templates)
-- [STL](#STL)
+- [STL_Intro](#STL_Intro)
 - [Functors](#Functors)
+- [STL_built_in_algorithms](#STL_built_in_algorithms)
 
 ## Comments
 
@@ -1973,7 +1974,7 @@ class Son : public Base<T2>{                   // Data type must be confirmed.
 };
 ```
 
-## STL
+## STL_Intro
 reference: https://www.geeksforgeeks.org/
 
 ### 1. vector
@@ -2572,4 +2573,4 @@ void test(){
 }
 ```
 
-## 
+## STL built in algorithms
