@@ -2421,4 +2421,154 @@ the operator.
 the key k. swap() function is used to exchange the contents of two maps but the maps must be of the same 
 type, although sizes may differ.
 
-### 9. 
+## Functors
+### 1. Functors
+- Consider a function that takes only one argument. However, while calling this function we have a lot more information that we would like to pass to this function, but we cannot as it accepts only one parameter.
+- It's a class, not a function
+- Similar as calling a function
+- While using functors, it can be called as the regular functions, can have parameters and returns.
+
+Example 1:
+```
+class MyAdd{
+public:
+   int operator()(int v1, int v2){
+      return v1 + v2;
+   }
+}:
+
+void test(){
+   MyAdd ma;
+   
+   cout << ma(10, 10) << endl;
+}
+```
+
+Example 2:
+```
+class MyPrint{
+public:
+   MyPring(){
+      count = 0;
+   }
+
+   void operator()(string test){
+      cout << test << endl;
+      count++;
+   }
+   
+   int count;                       // For counting how many times does the operator been called.
+}:
+
+void test(){
+   MyPrint mp;
+   
+   cout << mp("Hello world!") << endl;
+   
+   cout << mp.count << endl;
+}
+```
+
+Example 3:
+```
+class MyPrint{
+public:
+   MyPring(){
+      count = 0;
+   }
+
+   void operator()(string test){
+      cout << test << endl;
+      count++;
+   }
+   
+   int count;                       // For counting how many times does the operator been called.
+}:
+
+void doPrint(MyPrint & mp, string test){
+   mp(test);
+}
+
+void test(){
+   MyPrint mp;
+   doprint(mp, "Hello world!");
+   
+   cout << mp.count << endl;
+}
+```
+
+### 2. Predicates
+- The functors which return bools called predicates.
+```
+class Genarator{
+public:
+   bool operator()(int val){
+      return val > 5;
+   }
+};
+
+void test(){
+   vector<int> v;
+   for(int i = 0; i < 10; i++){
+      v.push_back(i);
+   }
+   
+   vector<int>::iterator it = find_if(v.begin(), v.end(), Genarator());                // Genarator is predicate.
+   
+   if(it == v.end()){
+      cout << "Didn't find" << endl;
+   }
+   else{
+      cout << it << endl;
+   }
+}
+```
+
+### 3. STL built in functors
+```
+#include<functinal>
+
+void test(){
+   negate<int> n;
+   
+   cout << n(50) << endl;           // -50
+}
+```
+
+```
+#include<functinal>
+
+void test(){
+   plus<int> p;
+   
+   cout << p(1, 1) << endl;          // 2
+}
+```
+
+```
+#include<functinal>
+
+void test(){
+   vector<int> v;
+   
+   v.push_back(1);
+   v.push_back(3);
+   v.push_back(2);
+   v.push_back(8);
+   v.push_back(5);
+   
+   for(vector<int>::iterator it = v.begin(); it != v.end(); it++){
+      cout << *it << " ";
+   }
+   cout << endl;
+   
+   sort(v.begin(), v.end(), greater<int>());                   // greater is a built in predicate, no need to write it by yourself.
+   
+      for(vector<int>::iterator it = v.begin(); it != v.end(); it++){
+      cout << *it << " ";
+   }
+   cout << endl;
+}
+```
+
+## 
