@@ -2039,6 +2039,8 @@ void test(){
 ```
 
 - Iterators:
+
+
 ```begin()``` – Returns an iterator pointing to the first element in the vector.
 
 ```end()``` – Returns an iterator pointing to the theoretical element that follows the last element in the vector.
@@ -2056,6 +2058,8 @@ void test(){
 ```crend()``` – Returns a constant reverse iterator pointing to the theoretical element preceding the first element in the vector (considered as reverse end)
 
 - Capacity:
+
+
 ```size()``` – Returns the number of elements in the vector.
 
 ```max_size()``` – Returns the maximum number of elements that the vector can hold.
@@ -2070,7 +2074,9 @@ void test(){
 
 ```reserve()``` – Requests that the vector capacity be at least enough to contain n elements.
 
-- Element access
+- Element access:
+
+
 ```reference operator [g]``` – Returns a reference to the element at position ‘g’ in the vector
 
 ```at(g)``` – Returns a reference to the element at position ‘g’ in the vector
@@ -2082,6 +2088,8 @@ void test(){
 ```data()``` – Returns a direct pointer to the memory array used internally by the vector to store its owned elements.
 
 - Modifiers:
+
+
 ```assign()``` – It assigns new value to the vector elements by replacing old ones
 
 ```push_back()``` – It push the elements into a vector from the back
@@ -2102,6 +2110,8 @@ void test(){
 
 ### 2. string
 - Modifiers:
+
+
 ```etline()```	This function is used to store a stream of characters as entered by the user in the object memory.
 
 ```push_back()```	This function is used to input a character at the end of the string.
@@ -2113,6 +2123,8 @@ void test(){
 ```swap()```	This function swaps one string with other.
 
 - Capacity:
+
+
 ```capacity()```	This function returns the capacity allocated to the string, which can be equal to or more than the size of the string. Additional space is allocated so that when the new characters are added to the string, the operations can be done efficiently.
 
 ```resize()```	This function changes the size of the string, the size can be increased or decreased.
@@ -2122,6 +2134,8 @@ void test(){
 ```shrink_to_fit()```	This function decreases the capacity of the string and makes it equal to the minimum capacity of the string. This operation is useful to save additional memory if we are sure that no further addition of characters has to be made.
 
 - Iterator:
+
+
 ```begin()```	This function returns an iterator to the beginning of the string.
 
 ```end()```	This function returns an iterator to the end of the string.
@@ -2134,6 +2148,8 @@ void test(){
 Double-ended queues are sequence containers with the feature of expansion and contraction on both ends.
 
 - Modifiers:
+
+
 ```deque::insert()```	Inserts an element. And returns an iterator that points to the first of the newly inserted elements.
 
 ```deque::rbegin()```	Returns a reverse iterator which points to the last element of the deque (i.e., its reverse beginning).
