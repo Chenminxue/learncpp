@@ -434,7 +434,30 @@ int main()
 ```
 
 ```
+#include <iostream>
 
+using namespace std;
+
+int sum(int &a, int &b)
+{
+
+    auto f = [](int lambda)
+    { return lambda * lambda; };
+    int res = f(a) + b;
+
+    return res;
+}
+
+int main()
+{
+    int a = 10;
+    int b = 20;
+
+    int res = sum(a, b);
+    cout << res << endl;
+
+    return 0;
+}
 ```
 
 
