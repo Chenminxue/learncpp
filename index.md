@@ -414,6 +414,28 @@ void func(double a, int b){
 }
 ```
 
+#### 8. Lambda function
+```
+int main()
+{
+
+    vector<int> c = {1, 3, 6, 3, 2};
+    vector<int> res;
+    sort(c.begin(), c.end(), [](int a, int b)
+         { return a > b; });
+
+    for (int i = 0; i < c.size(); i++)
+    {
+        cout << c[i] << endl;
+    }
+
+    return 0;
+}
+```
+
+```
+
+```
 
 
 ## Pointers
